@@ -21,12 +21,13 @@ namespace Yuksekogretim_Yonetim_Sistemi
         string UserFaculty = "";
         string UserDepartment = "";
         string UserNo = "";
+        string UserImage = "";
         
         public Form6()
         {
 
         }
-        public Form6(string userName, string userSurname, string userUniversity, string userFaculty, string userDepartment, string userNo)
+        public Form6(string userName, string userSurname, string userUniversity, string userFaculty, string userDepartment, string userNo, string userImage)
         {
             InitializeComponent();
             Username = userName;
@@ -35,6 +36,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             UserFaculty = userFaculty;
             UserDepartment = userDepartment;
             UserNo = userNo;
+            UserImage = userImage;
         }
 
         private void Form6_Load(object sender, EventArgs e)
@@ -45,6 +47,8 @@ namespace Yuksekogretim_Yonetim_Sistemi
             lblFak.Text = UserFaculty;
             lblBol.Text = UserDepartment;
             lblNo.Text = "Personel No: " + UserNo;
+            pictureBox1.Image = Image.FromFile(@"C:\Users\ksmcn\OneDrive\Masaüstü\k.jpg");
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -54,7 +58,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             frm1.Show();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void label2_Click_1(object sender, EventArgs e)
         {
             Form7 frm7 = new Form7();
             this.Hide();

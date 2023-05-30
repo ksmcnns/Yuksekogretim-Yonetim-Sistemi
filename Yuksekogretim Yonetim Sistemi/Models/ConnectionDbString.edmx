@@ -91,6 +91,7 @@ warning 6002: The table/view 'YYS_DB.dbo.Notlar' does not have a primary key def
           <Property Name="OgrFakulte" Type="nvarchar(max)" />
           <Property Name="OgrBolum" Type="nvarchar(max)" />
           <Property Name="OgrSifre" Type="nvarchar(max)" />
+          <Property Name="OgrFoto" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Personel">
           <Key>
@@ -110,6 +111,7 @@ warning 6002: The table/view 'YYS_DB.dbo.Notlar' does not have a primary key def
           <Property Name="PersonelFakulte" Type="nvarchar(max)" Nullable="false" />
           <Property Name="PersonelBolum" Type="nvarchar(max)" Nullable="false" />
           <Property Name="PersonelSifre" Type="nvarchar(max)" />
+          <Property Name="PersonelFoto" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -268,7 +270,7 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
           <EntitySet Name="iller" EntityType="YYS_DBModel.iller" />
           <EntitySet Name="Notlar" EntityType="YYS_DBModel.Notlar" />
           <EntitySet Name="universiteler" EntityType="YYS_DBModel.universiteler" />
-        </EntityContainer>
+          </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -297,6 +299,7 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
           <Property Name="OgrFakulte" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OgrBolum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OgrSifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OgrFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Personel">
           <Key>
@@ -316,6 +319,7 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
           <Property Name="PersonelFakulte" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PersonelBolum" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PersonelSifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -398,7 +402,7 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
           <Property Name="il_id" Type="Int32" Nullable="false" />
           <Property Name="status" Type="Int32" Nullable="false" />
         </EntityType>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -432,6 +436,7 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
           <EntitySetMapping Name="Ogrenci">
             <EntityTypeMapping TypeName="YYS_DBModel.Ogrenci">
               <MappingFragment StoreEntitySet="Ogrenci">
+                <ScalarProperty Name="OgrFoto" ColumnName="OgrFoto" />
                 <ScalarProperty Name="OgrSifre" ColumnName="OgrSifre" />
                 <ScalarProperty Name="OgrBolum" ColumnName="OgrBolum" />
                 <ScalarProperty Name="OgrFakulte" ColumnName="OgrFakulte" />
@@ -451,6 +456,7 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
           <EntitySetMapping Name="Personel">
             <EntityTypeMapping TypeName="YYS_DBModel.Personel">
               <MappingFragment StoreEntitySet="Personel">
+                <ScalarProperty Name="PersonelFoto" ColumnName="PersonelFoto" />
                 <ScalarProperty Name="PersonelSifre" ColumnName="PersonelSifre" />
                 <ScalarProperty Name="PersonelBolum" ColumnName="PersonelBolum" />
                 <ScalarProperty Name="PersonelFakulte" ColumnName="PersonelFakulte" />
@@ -542,7 +548,7 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

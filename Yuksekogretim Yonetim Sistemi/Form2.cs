@@ -21,6 +21,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
         private int VerifyCode = 0;
         private int StudentNo = 0;
         private string StudentFirstPassword = "";
+        private string ImagePath = "";
 
         public Form2()
         {
@@ -30,6 +31,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
         private void Form2_Load(object sender, EventArgs e)
         {
             comboBox1.DataSource = db.universiteler.Select(u => u.uni_ad).ToList();
+            
         }
        
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -144,6 +146,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             o.OgrFakulte = comboBox2.Text;
             o.OgrBolum = comboBox3.Text;
             o.OgrSifre = StudentFirstPassword;
+            o.OgrFoto = ImagePath;
             db.Ogrenci.Add(o);
             try
             {
@@ -174,7 +177,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             mail.From = new MailAddress("ksmcn2016@hotmail.com");
             mail.Subject = "Kayıt bilgilerinizi içeren E-postadır";
             mail.Body =
-                "Sayın " + txtName.Text + txtSurname.Text + "\n" +
+                "Sayın " + txtName.Text +" "+ txtSurname.Text + "\n" +
                 "Üniversite: " + comboBox1.Text + "\n" +
                 "Fakülte : " + comboBox2.Text + "\n" +
                 "Bölüm: " + comboBox3.Text + "\n" +
@@ -195,102 +198,17 @@ namespace Yuksekogretim_Yonetim_Sistemi
             txtPhone.Text = "";
             txtVerifyCode.Text = "";
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Resim Seç";
+            ofd.Filter = "Files|*.jpg;*.jpeg;*.png;";
+            if(ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                ImagePath = ofd.FileName;
+                button4.Text = "Fotograf Secildi";
+            }
+        }
     }
 }
-
-
-// + "\r\n" +"Öğrenci numaranız:" + studentNo
-
-
-
-/* private void setCombobox1()
-        {
-            var universiteler = db.universiteler.ToList();
-            var universiteItems = universiteler.Select(u => new UniversityItem { UniversityId = u.uni_id, University_name = u.uni_ad }).ToList();
-            comboBox1.DataSource = universiteItems;
-        }
-        private void setCombobox2()
-        {
-            var fakulteler = db.fakulteler.ToList();
-            var facultyItems = fakulteler.Select(u => new FacultyItem { FacultyId = u.fakulte_id, Faculty_name = u.fakulte_ad }).ToList();
-            comboBox2.DataSource = facultyItems;
-        }
-        private void setCombobox3()
-        {
-            var bolumler = db.bolumler.ToList();
-            var SectionItems = bolumler.Select(u => new SectionItem { SectionId = u.bolum_id, Section_name = u.bolum_ad }).ToList();
-            comboBox3.DataSource = SectionItems;
-
-
-
-
-
-
-
- var secilen = comboBox1.SelectedValue;
-
-            // Sorguyu yazın ve veritabanından ID numarasını alın
-            using (var db = new YYS_DBEntitiesConnectionDb())
-            {
-                var sonuc = db.universiteler.FirstOrDefault(x => x.uni_id == (int)secilen);
-                var id = sonuc.uni_id;
-
-                // ID numarasını kullanarak ilgili işlemleri yapın
-                // ...
-            }
-
-
-            int x = comboBox1.SelectedIndex;
-            var selectedUniversiteItem = (UniversityItem)comboBox1.SelectedValue;
-            int universityId = selectedUniversiteItem.UniversityId;
-            int selectedUniversiteId = selectedUniversiteItem.UniversityId;
-            int hundredsDigitOfUni = (selectedUniversiteId / 100) % 10; //
-            int tensDigitOfUni = (selectedUniversiteId / 10) % 10;
-            
-            var selectedFacultyItem = (FacultyItem)comboBox2.SelectedItem;
-            var selectedFacultyId = selectedFacultyItem.FacultyId;
-            int hundredsDigitOfFaculty = (selectedFacultyId / 100) % 10; //
-            int tensDigitOfFaculty = (selectedFacultyId / 10) % 10;
-            return (hundredsDigitOfUni+""+tensDigitOfUni+""+hundredsDigitOfFaculty+""+tensDigitOfFaculty);
-
- //ComboBox'ın veri kaynağını ayarla
-            //comboBox1.DataSource = db.universiteler.ToList();
-            //comboBox1.DisplayMember = "uni_ad";
-            //comboBox1.ValueMember = db.universiteler.Where(x => x.uni_id == selectedUniversity.uni_id).ToList())
-
-            //try
-            //{
-            //    // Seçilen üniversiteyi al
-            //    universiteler selectedUniversity = comboBox1.SelectedItem as universiteler;
-
-            //    // Seçilen üniversitenin fakültelerini yükle
-            //    comboBox2.Items.Clear();
-            //    foreach (fakulteler faculty in db.fakulteler.Where(x => x.uni_id == selectedUniversity.uni_id).ToList())
-            //    {
-            //        comboBox2.Items.Add(faculty.fakulte_ad);
-            //    }
-            //}
-            //catch (Exception)
-            //{
-            //    // Hata durumunda yapılacak işlem
-            //}
-
-            //int selectedEntityId = 0;
-            ////ComboBox nesnesinin ValueMember özelliği "Id" olarak ayarlanmıştır
-            //if(comboBox1.DataSource != null)
-            //{
-            //    int selectedItemId = (int)comboBox1.SelectedValue;
-
-            //    //Veritabanından nesne çekme işlemi
-            //    using (var db = new YYS_DBEntitiesConnectionDb())
-            //    {
-            //        universiteler selectedEntity = db.universiteler.FirstOrDefault(e => e.uni_id == selectedItemId);
-
-            //        //selectedEntity nesnesinin veritabanındaki Id'sine erişebilirsiniz
-            //        selectedEntityId = selectedEntity.uni_id;
-            //    }
-            //}
-
-            //int hundredsDigitOfUni = (selectedEntityId / 100) % 10;
-            //int tensDigitOfUni = (selectedEntityId / 10) % 10;
-        }*/

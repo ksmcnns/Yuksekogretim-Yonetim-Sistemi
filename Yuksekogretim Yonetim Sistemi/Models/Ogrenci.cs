@@ -27,5 +27,6 @@ namespace Yuksekogretim_Yonetim_Sistemi.Models
         public string OgrFakulte { get; set; }
         public string OgrBolum { get; set; }
         public string OgrSifre { get; set; }
+        public string OgrFoto { get; set; }
     }
 }

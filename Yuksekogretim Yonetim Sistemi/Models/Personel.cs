@@ -28,5 +28,6 @@ namespace Yuksekogretim_Yonetim_Sistemi.Models
         public string PersonelFakulte { get; set; }
         public string PersonelBolum { get; set; }
         public string PersonelSifre { get; set; }
+        public string PersonelFoto { get; set; }
     }
 }

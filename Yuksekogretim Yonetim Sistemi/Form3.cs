@@ -22,7 +22,8 @@ namespace Yuksekogretim_Yonetim_Sistemi
         string UserFaculty = "";
         string UserDepartment = "";
         string UserNo = "";
-        public Form3(string userName, string userSurname, string userUniversity, string userFaculty, string userDepartment, string userNo)
+        string UserImage = "";
+        public Form3(string userName, string userSurname, string userUniversity, string userFaculty, string userDepartment, string userNo, string userImage)
         {
             InitializeComponent();
             Username = userName;
@@ -31,6 +32,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             UserFaculty = userFaculty;
             UserDepartment = userDepartment;
             UserNo = userNo;
+            UserImage = userImage;
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -48,13 +50,15 @@ namespace Yuksekogretim_Yonetim_Sistemi
             lblFak.Text = UserFaculty;
             lblBol.Text = UserDepartment;
             lblNo.Text = "Öğrenci No: "+ UserNo;
+            pictureBox1.Image = Image.FromFile(UserImage);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
             try
             {
-                //dataGridView1.DataSource = db.NOTLISTESI();
+               // dataGridView1.DataSource = db.NOTLISTESI();
             }
             catch (Exception ex)
             {

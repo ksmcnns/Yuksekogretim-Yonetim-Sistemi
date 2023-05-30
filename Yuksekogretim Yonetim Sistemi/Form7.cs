@@ -23,6 +23,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
         private int VerifyCode = 0;
         private int EmployeeNo = 0;
         private string EmployeeFirstPassword = "";
+        private string ImagePath;
         public Form7()
         {
             InitializeComponent();
@@ -153,9 +154,9 @@ namespace Yuksekogretim_Yonetim_Sistemi
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form6 frm6 = new Form6();
+            Form1 frm1 = new Form1();
             this.Close();
-            frm6.Show();
+            frm1.Show();
         }
         private void registerTheEmployee()
         {
@@ -190,7 +191,6 @@ namespace Yuksekogretim_Yonetim_Sistemi
                 }
             }
         }
-
         private void sendInformationMail()
         {
             MailMessage mail = new MailMessage();
@@ -204,7 +204,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             mail.From = new MailAddress("ksmcn2016@hotmail.com");
             mail.Subject = "Kayıt bilgilerinizi içeren E-postadır";
             mail.Body =
-                "Sayın " + txtName.Text + txtSurname.Text + "\n" +
+                "Sayın " + txtName.Text +" "+ txtSurname.Text + "\n" +
                 "Üniversite: " + comboBox1.Text + "\n" +
                 "Fakülte : " + comboBox2.Text + "\n" +
                 "Bölüm: " + comboBox3.Text + "\n" +
@@ -223,6 +223,18 @@ namespace Yuksekogretim_Yonetim_Sistemi
             txtSurname.Text = "";
             txtPhone.Text = "";
             txtVerifyCode.Text = "";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Resim Seç";
+            ofd.Filter = "Files|*.jpg;*.jpeg;*.png;";
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                ImagePath = ofd.FileName;
+                button4.Text = "Fotograf Secildi";
+            }
         }
     }
 }

@@ -58,6 +58,9 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // button3
@@ -65,7 +68,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button3.Location = new System.Drawing.Point(1242, 690);
+            this.button3.Location = new System.Drawing.Point(1242, 718);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(264, 72);
             this.button3.TabIndex = 58;
@@ -78,7 +81,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(1242, 602);
+            this.button2.Location = new System.Drawing.Point(1242, 630);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(264, 72);
             this.button2.TabIndex = 57;
@@ -90,7 +93,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             // 
             this.txtVerifyCode.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtVerifyCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtVerifyCode.Location = new System.Drawing.Point(1190, 525);
+            this.txtVerifyCode.Location = new System.Drawing.Point(1189, 548);
             this.txtVerifyCode.Multiline = true;
             this.txtVerifyCode.Name = "txtVerifyCode";
             this.txtVerifyCode.Size = new System.Drawing.Size(234, 36);
@@ -101,7 +104,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label14.Location = new System.Drawing.Point(1015, 529);
+            this.label14.Location = new System.Drawing.Point(1014, 552);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(150, 32);
             this.label14.TabIndex = 55;
@@ -111,7 +114,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(918, 438);
+            this.button1.Location = new System.Drawing.Point(918, 492);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(588, 38);
             this.button1.TabIndex = 54;
@@ -125,7 +128,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label13.Location = new System.Drawing.Point(779, 602);
+            this.label13.Location = new System.Drawing.Point(779, 630);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(386, 64);
             this.label13.TabIndex = 53;
@@ -381,11 +384,40 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.label12.TabIndex = 59;
             this.label12.Text = "Unvan";
             // 
+            // button4
+            // 
+            this.button4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button4.Location = new System.Drawing.Point(918, 438);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(588, 38);
+            this.button4.TabIndex = 61;
+            this.button4.Text = "Fotograf Sec";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label15.Location = new System.Drawing.Point(791, 444);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(121, 32);
+            this.label15.TabIndex = 62;
+            this.label15.Text = "Fotograf";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form7
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1583, 808);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.button3);
@@ -454,5 +486,8 @@ namespace Yuksekogretim_Yonetim_Sistemi
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

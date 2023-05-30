@@ -39,7 +39,6 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblNo = new System.Windows.Forms.Label();
             this.lblSoyad = new System.Windows.Forms.Label();
@@ -50,17 +49,18 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.label6 = new System.Windows.Forms.Label();
             this.lblUni = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
@@ -70,10 +70,9 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(229, 762);
+            this.panel1.Size = new System.Drawing.Size(279, 762);
             this.panel1.TabIndex = 0;
             // 
             // label9
@@ -124,7 +123,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panel3.Location = new System.Drawing.Point(0, 145);
+            this.panel3.Location = new System.Drawing.Point(0, 175);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(10, 758);
             this.panel3.TabIndex = 2;
@@ -174,19 +173,10 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.label2.TabIndex = 3;
             this.label2.Text = "Ders Durum";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(248)))), ((int)(((byte)(249)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(229, 142);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1285, 617);
-            this.dataGridView1.TabIndex = 2;
-            // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.lblNo);
             this.panel2.Controls.Add(this.lblSoyad);
@@ -196,10 +186,9 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.lblUni);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(229, 0);
+            this.panel2.Location = new System.Drawing.Point(279, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1285, 146);
+            this.panel2.Size = new System.Drawing.Size(1235, 187);
             this.panel2.TabIndex = 3;
             // 
             // lblNo
@@ -289,22 +278,22 @@ namespace Yuksekogretim_Yonetim_Sistemi
             // 
             // panel5
             // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.dataGridView2);
-            this.panel5.Location = new System.Drawing.Point(229, 145);
+            this.panel5.Location = new System.Drawing.Point(279, 145);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1282, 605);
+            this.panel5.Size = new System.Drawing.Size(1232, 605);
             this.panel5.TabIndex = 4;
             // 
-            // dataGridView2
+            // pictureBox1
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 7);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(1267, 520);
-            this.dataGridView2.TabIndex = 0;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(276, 169);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // Form3
             // 
@@ -314,18 +303,15 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.ClientSize = new System.Drawing.Size(1514, 762);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Name = "Form3";
             this.Text = "OgrenciEkranı";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -340,7 +326,6 @@ namespace Yuksekogretim_Yonetim_Sistemi
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel2;
@@ -353,6 +338,6 @@ namespace Yuksekogretim_Yonetim_Sistemi
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblUni;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
