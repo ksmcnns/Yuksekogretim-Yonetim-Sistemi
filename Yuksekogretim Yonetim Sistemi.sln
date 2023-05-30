@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33423.256
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yuksekogretim Yonetim Sistemi", "Yuksekogretim Yonetim Sistemi\Yuksekogretim Yonetim Sistemi.csproj", "{16E039D8-6B50-4FA2-A2EA-8977A1D96A1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{59EFA111-E9B9-4267-9693-EFC02256D9DA}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16E039D8-6B50-4FA2-A2EA-8977A1D96A1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16E039D8-6B50-4FA2-A2EA-8977A1D96A1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16E039D8-6B50-4FA2-A2EA-8977A1D96A1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16E039D8-6B50-4FA2-A2EA-8977A1D96A1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF907AA0-143A-467B-9563-871D5D58817F}
+	EndGlobalSection
+EndGlobal

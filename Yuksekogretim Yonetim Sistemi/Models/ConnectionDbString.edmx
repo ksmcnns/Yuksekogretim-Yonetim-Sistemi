@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="YYS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YYS_DB.dbo.bolumler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="bolumler">
+          <Key>
+            <PropertyRef Name="bolum_id" />
+            <PropertyRef Name="uni_id" />
+            <PropertyRef Name="bolum_ad" />
+            <PropertyRef Name="fakulte_id" />
+            <PropertyRef Name="status" />
+          </Key>
+          <Property Name="bolum_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uni_id" Type="int" Nullable="false" />
+          <Property Name="bolum_ad" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="fakulte_id" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YYS_DB.dbo.Dersler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Dersler">
+          <Key>
+            <PropertyRef Name="DersID" />
+          </Key>
+          <Property Name="DersID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DersAd" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YYS_DB.dbo.fakulteler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="fakulteler">
+          <Key>
+            <PropertyRef Name="fakulte_id" />
+            <PropertyRef Name="fakulte_ad" />
+            <PropertyRef Name="uni_id" />
+            <PropertyRef Name="status" />
+          </Key>
+          <Property Name="fakulte_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fakulte_ad" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="uni_id" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YYS_DB.dbo.iller' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="iller">
+          <Key>
+            <PropertyRef Name="il_id" />
+            <PropertyRef Name="il_name" />
+            <PropertyRef Name="status" />
+          </Key>
+          <Property Name="il_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="il_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YYS_DB.dbo.Notlar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Notlar">
+          <Key>
+            <PropertyRef Name="NotID" />
+            <PropertyRef Name="OgrID" />
+            <PropertyRef Name="Ders" />
+          </Key>
+          <Property Name="NotID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OgrID" Type="int" Nullable="false" />
+          <Property Name="Ders" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Vize1" Type="smallint" />
+          <Property Name="Vize2" Type="smallint" />
+          <Property Name="Final1" Type="smallint" />
+          <Property Name="Final2" Type="smallint" />
+          <Property Name="Ortalama" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="Durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="Ogrenci">
+          <Key>
+            <PropertyRef Name="OgrID" />
+          </Key>
+          <Property Name="OgrID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OgrNo" Type="int" Nullable="false" />
+          <Property Name="OgrAdi" Type="nvarchar(max)" />
+          <Property Name="OgrSoyAdi" Type="nvarchar(max)" />
+          <Property Name="OgrDogumT" Type="nvarchar(max)" />
+          <Property Name="OgrKayitT" Type="nvarchar(max)" />
+          <Property Name="OgrTel" Type="nvarchar(max)" />
+          <Property Name="OgrMail" Type="nvarchar(max)" />
+          <Property Name="OgrAdres" Type="nvarchar(max)" />
+          <Property Name="OgrUniversite" Type="nvarchar(max)" />
+          <Property Name="OgrFakulte" Type="nvarchar(max)" />
+          <Property Name="OgrBolum" Type="nvarchar(max)" />
+          <Property Name="OgrSifre" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Personel">
+          <Key>
+            <PropertyRef Name="PersonelID" />
+          </Key>
+          <Property Name="PersonelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KatagoriId" Type="int" Nullable="false" />
+          <Property Name="PersonelNo" Type="int" Nullable="false" />
+          <Property Name="PersonelAd" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PersonelSoyad" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PersonelDogumT" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PersonelKayitT" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PersonelTel" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PersonelAdres" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PersonelMail" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PersonelUniversite" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PersonelFakulte" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PersonelBolum" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PersonelSifre" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="universiteler">
+          <Key>
+            <PropertyRef Name="uni_id" />
+            <PropertyRef Name="uni_ad" />
+            <PropertyRef Name="il_id" />
+            <PropertyRef Name="status" />
+          </Key>
+          <Property Name="uni_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uni_ad" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="il_id" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+        </EntityType>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="NOTLISTESI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="YYS_DBModelStoreContainer">
+          <EntitySet Name="Ogrenci" EntityType="Self.Ogrenci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personel" EntityType="Self.Personel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bolumler" EntityType="Self.bolumler" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [bolumler].[bolum_id] AS [bolum_id], 
+    [bolumler].[uni_id] AS [uni_id], 
+    [bolumler].[bolum_ad] AS [bolum_ad], 
+    [bolumler].[fakulte_id] AS [fakulte_id], 
+    [bolumler].[status] AS [status]
+    FROM [dbo].[bolumler] AS [bolumler]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Dersler" EntityType="Self.Dersler" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Dersler].[DersID] AS [DersID], 
+    [Dersler].[DersAd] AS [DersAd]
+    FROM [dbo].[Dersler] AS [Dersler]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="fakulteler" EntityType="Self.fakulteler" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [fakulteler].[fakulte_id] AS [fakulte_id], 
+    [fakulteler].[fakulte_ad] AS [fakulte_ad], 
+    [fakulteler].[uni_id] AS [uni_id], 
+    [fakulteler].[status] AS [status]
+    FROM [dbo].[fakulteler] AS [fakulteler]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="iller" EntityType="Self.iller" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [iller].[il_id] AS [il_id], 
+    [iller].[il_name] AS [il_name], 
+    [iller].[status] AS [status]
+    FROM [dbo].[iller] AS [iller]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Notlar" EntityType="Self.Notlar" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Notlar].[NotID] AS [NotID], 
+    [Notlar].[OgrID] AS [OgrID], 
+    [Notlar].[Ders] AS [Ders], 
+    [Notlar].[Vize1] AS [Vize1], 
+    [Notlar].[Vize2] AS [Vize2], 
+    [Notlar].[Final1] AS [Final1], 
+    [Notlar].[Final2] AS [Final2], 
+    [Notlar].[Ortalama] AS [Ortalama], 
+    [Notlar].[Durum] AS [Durum]
+    FROM [dbo].[Notlar] AS [Notlar]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="universiteler" EntityType="Self.universiteler" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [universiteler].[uni_id] AS [uni_id], 
+    [universiteler].[uni_ad] AS [uni_ad], 
+    [universiteler].[il_id] AS [il_id], 
+    [universiteler].[status] AS [status]
+    FROM [dbo].[universiteler] AS [universiteler]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YYS_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="YYS_DBEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="NOTLISTESI" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(YYS_DBModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(YYS_DBModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Ogrenci" EntityType="YYS_DBModel.Ogrenci" />
+          <EntitySet Name="Personel" EntityType="YYS_DBModel.Personel" />
+          <EntitySet Name="sysdiagrams" EntityType="YYS_DBModel.sysdiagrams" />
+          <EntitySet Name="bolumler" EntityType="YYS_DBModel.bolumler" />
+          <EntitySet Name="Dersler" EntityType="YYS_DBModel.Dersler" />
+          <EntitySet Name="fakulteler" EntityType="YYS_DBModel.fakulteler" />
+          <EntitySet Name="iller" EntityType="YYS_DBModel.iller" />
+          <EntitySet Name="Notlar" EntityType="YYS_DBModel.Notlar" />
+          <EntitySet Name="universiteler" EntityType="YYS_DBModel.universiteler" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Ogrenci">
+          <Key>
+            <PropertyRef Name="OgrID" />
+          </Key>
+          <Property Name="OgrID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgrNo" Type="Int32" Nullable="false" />
+          <Property Name="OgrAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OgrSoyAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OgrDogumT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OgrKayitT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OgrTel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OgrMail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OgrAdres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OgrUniversite" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OgrFakulte" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OgrBolum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OgrSifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Personel">
+          <Key>
+            <PropertyRef Name="PersonelID" />
+          </Key>
+          <Property Name="PersonelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KatagoriId" Type="Int32" Nullable="false" />
+          <Property Name="PersonelNo" Type="Int32" Nullable="false" />
+          <Property Name="PersonelAd" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelSoyad" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelDogumT" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelKayitT" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelTel" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelAdres" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelMail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelUniversite" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelFakulte" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelBolum" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelSifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="bolumler">
+          <Key>
+            <PropertyRef Name="bolum_id" />
+            <PropertyRef Name="uni_id" />
+            <PropertyRef Name="bolum_ad" />
+            <PropertyRef Name="fakulte_id" />
+            <PropertyRef Name="status" />
+          </Key>
+          <Property Name="bolum_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uni_id" Type="Int32" Nullable="false" />
+          <Property Name="bolum_ad" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fakulte_id" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dersler">
+          <Key>
+            <PropertyRef Name="DersID" />
+          </Key>
+          <Property Name="DersID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DersAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="fakulteler">
+          <Key>
+            <PropertyRef Name="fakulte_id" />
+            <PropertyRef Name="fakulte_ad" />
+            <PropertyRef Name="uni_id" />
+            <PropertyRef Name="status" />
+          </Key>
+          <Property Name="fakulte_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fakulte_ad" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="uni_id" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="iller">
+          <Key>
+            <PropertyRef Name="il_id" />
+            <PropertyRef Name="il_name" />
+            <PropertyRef Name="status" />
+          </Key>
+          <Property Name="il_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="il_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notlar">
+          <Key>
+            <PropertyRef Name="NotID" />
+            <PropertyRef Name="OgrID" />
+            <PropertyRef Name="Ders" />
+          </Key>
+          <Property Name="NotID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgrID" Type="Int32" Nullable="false" />
+          <Property Name="Ders" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Vize1" Type="Int16" />
+          <Property Name="Vize2" Type="Int16" />
+          <Property Name="Final1" Type="Int16" />
+          <Property Name="Final2" Type="Int16" />
+          <Property Name="Ortalama" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Durum" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="universiteler">
+          <Key>
+            <PropertyRef Name="uni_id" />
+            <PropertyRef Name="uni_ad" />
+            <PropertyRef Name="il_id" />
+            <PropertyRef Name="status" />
+          </Key>
+          <Property Name="uni_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uni_ad" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="il_id" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YYS_DBModelStoreContainer" CdmEntityContainer="YYS_DBEntities">
+          <FunctionImportMapping FunctionImportName="NOTLISTESI" FunctionName="YYS_DBModel.Store.NOTLISTESI" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="YYS_DBModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="YYS_DBModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="YYS_DBModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="YYS_DBModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="YYS_DBModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="YYS_DBModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="YYS_DBModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="YYS_DBModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="YYS_DBModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Ogrenci">
+            <EntityTypeMapping TypeName="YYS_DBModel.Ogrenci">
+              <MappingFragment StoreEntitySet="Ogrenci">
+                <ScalarProperty Name="OgrSifre" ColumnName="OgrSifre" />
+                <ScalarProperty Name="OgrBolum" ColumnName="OgrBolum" />
+                <ScalarProperty Name="OgrFakulte" ColumnName="OgrFakulte" />
+                <ScalarProperty Name="OgrUniversite" ColumnName="OgrUniversite" />
+                <ScalarProperty Name="OgrAdres" ColumnName="OgrAdres" />
+                <ScalarProperty Name="OgrMail" ColumnName="OgrMail" />
+                <ScalarProperty Name="OgrTel" ColumnName="OgrTel" />
+                <ScalarProperty Name="OgrKayitT" ColumnName="OgrKayitT" />
+                <ScalarProperty Name="OgrDogumT" ColumnName="OgrDogumT" />
+                <ScalarProperty Name="OgrSoyAdi" ColumnName="OgrSoyAdi" />
+                <ScalarProperty Name="OgrAdi" ColumnName="OgrAdi" />
+                <ScalarProperty Name="OgrNo" ColumnName="OgrNo" />
+                <ScalarProperty Name="OgrID" ColumnName="OgrID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personel">
+            <EntityTypeMapping TypeName="YYS_DBModel.Personel">
+              <MappingFragment StoreEntitySet="Personel">
+                <ScalarProperty Name="PersonelSifre" ColumnName="PersonelSifre" />
+                <ScalarProperty Name="PersonelBolum" ColumnName="PersonelBolum" />
+                <ScalarProperty Name="PersonelFakulte" ColumnName="PersonelFakulte" />
+                <ScalarProperty Name="PersonelUniversite" ColumnName="PersonelUniversite" />
+                <ScalarProperty Name="PersonelMail" ColumnName="PersonelMail" />
+                <ScalarProperty Name="PersonelAdres" ColumnName="PersonelAdres" />
+                <ScalarProperty Name="PersonelTel" ColumnName="PersonelTel" />
+                <ScalarProperty Name="PersonelKayitT" ColumnName="PersonelKayitT" />
+                <ScalarProperty Name="PersonelDogumT" ColumnName="PersonelDogumT" />
+                <ScalarProperty Name="PersonelSoyad" ColumnName="PersonelSoyad" />
+                <ScalarProperty Name="PersonelAd" ColumnName="PersonelAd" />
+                <ScalarProperty Name="PersonelNo" ColumnName="PersonelNo" />
+                <ScalarProperty Name="KatagoriId" ColumnName="KatagoriId" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="YYS_DBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bolumler">
+            <EntityTypeMapping TypeName="YYS_DBModel.bolumler">
+              <MappingFragment StoreEntitySet="bolumler">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="fakulte_id" ColumnName="fakulte_id" />
+                <ScalarProperty Name="bolum_ad" ColumnName="bolum_ad" />
+                <ScalarProperty Name="uni_id" ColumnName="uni_id" />
+                <ScalarProperty Name="bolum_id" ColumnName="bolum_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dersler">
+            <EntityTypeMapping TypeName="YYS_DBModel.Dersler">
+              <MappingFragment StoreEntitySet="Dersler">
+                <ScalarProperty Name="DersAd" ColumnName="DersAd" />
+                <ScalarProperty Name="DersID" ColumnName="DersID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fakulteler">
+            <EntityTypeMapping TypeName="YYS_DBModel.fakulteler">
+              <MappingFragment StoreEntitySet="fakulteler">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="uni_id" ColumnName="uni_id" />
+                <ScalarProperty Name="fakulte_ad" ColumnName="fakulte_ad" />
+                <ScalarProperty Name="fakulte_id" ColumnName="fakulte_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="iller">
+            <EntityTypeMapping TypeName="YYS_DBModel.iller">
+              <MappingFragment StoreEntitySet="iller">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="il_name" ColumnName="il_name" />
+                <ScalarProperty Name="il_id" ColumnName="il_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notlar">
+            <EntityTypeMapping TypeName="YYS_DBModel.Notlar">
+              <MappingFragment StoreEntitySet="Notlar">
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="Ortalama" ColumnName="Ortalama" />
+                <ScalarProperty Name="Final2" ColumnName="Final2" />
+                <ScalarProperty Name="Final1" ColumnName="Final1" />
+                <ScalarProperty Name="Vize2" ColumnName="Vize2" />
+                <ScalarProperty Name="Vize1" ColumnName="Vize1" />
+                <ScalarProperty Name="Ders" ColumnName="Ders" />
+                <ScalarProperty Name="OgrID" ColumnName="OgrID" />
+                <ScalarProperty Name="NotID" ColumnName="NotID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="universiteler">
+            <EntityTypeMapping TypeName="YYS_DBModel.universiteler">
+              <MappingFragment StoreEntitySet="universiteler">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="il_id" ColumnName="il_id" />
+                <ScalarProperty Name="uni_ad" ColumnName="uni_ad" />
+                <ScalarProperty Name="uni_id" ColumnName="uni_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
