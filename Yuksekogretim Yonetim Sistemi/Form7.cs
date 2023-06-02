@@ -174,6 +174,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             p.PersonelFakulte = comboBox2.Text;
             p.PersonelBolum = comboBox3.Text;
             p.PersonelSifre = EmployeeFirstPassword;
+            p.PersonelUnvan = comboBox4.Text;
             db.Personel.Add(p);
             try
             {

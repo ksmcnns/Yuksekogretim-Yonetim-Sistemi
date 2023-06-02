@@ -23,7 +23,8 @@ namespace Yuksekogretim_Yonetim_Sistemi
         string UserDepartment = "";
         string UserNo = "";
         string UserImage = "";
-        public Form4(string userName, string userSurname, string userUniversity, string userFaculty, string userDepartment, string userNo, string userImage)
+        string UserTitle = "";
+        public Form4(string userName, string userSurname, string userUniversity, string userFaculty, string userDepartment, string userNo, string userImage, string userTitle)
         {
             InitializeComponent();
             Username = userName;
@@ -33,6 +34,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             UserDepartment = userDepartment;
             UserNo = userNo;
             UserImage = userImage;
+            UserTitle = userTitle;
         }
 
         private void Form4_Load(object sender, EventArgs e)
@@ -42,8 +44,18 @@ namespace Yuksekogretim_Yonetim_Sistemi
             lblUni.Text = UserUniversity;
             lblFak.Text = UserFaculty;
             lblBol.Text = UserDepartment;
+            lblUnvan.Text = "(" + UserTitle + ")";
             lblNo.Text = "Personel No: " + UserNo;
-            pictureBox1.Image = Image.FromFile(UserImage);
+            try
+            {
+                pictureBox1.Image = Image.FromFile(UserImage);
+            }
+            catch (Exception ex)
+            {
+               
+            }
+            
+
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 

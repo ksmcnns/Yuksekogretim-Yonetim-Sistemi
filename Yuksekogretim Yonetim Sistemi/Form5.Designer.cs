@@ -46,6 +46,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblUnvan = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -56,6 +57,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.lblUnvan);
             this.panel2.Controls.Add(this.lblNo);
             this.panel2.Controls.Add(this.lblSoyad);
             this.panel2.Controls.Add(this.lblAd);
@@ -74,7 +76,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.lblNo.AutoSize = true;
             this.lblNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblNo.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblNo.Location = new System.Drawing.Point(1023, 70);
+            this.lblNo.Location = new System.Drawing.Point(974, 69);
             this.lblNo.Name = "lblNo";
             this.lblNo.Size = new System.Drawing.Size(131, 18);
             this.lblNo.TabIndex = 15;
@@ -126,6 +128,8 @@ namespace Yuksekogretim_Yonetim_Sistemi
             // 
             // panel4
             // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel4.Location = new System.Drawing.Point(0, 118);
             this.panel4.Name = "panel4";
@@ -225,6 +229,8 @@ namespace Yuksekogretim_Yonetim_Sistemi
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel3.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel3.Location = new System.Drawing.Point(0, 175);
             this.panel3.Name = "panel3";
@@ -241,6 +247,17 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.label4.Size = new System.Drawing.Size(190, 64);
             this.label4.TabIndex = 5;
             this.label4.Text = "Genel Erişim\r\nEkranı";
+            // 
+            // lblUnvan
+            // 
+            this.lblUnvan.AutoSize = true;
+            this.lblUnvan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUnvan.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblUnvan.Location = new System.Drawing.Point(268, 64);
+            this.lblUnvan.Name = "lblUnvan";
+            this.lblUnvan.Size = new System.Drawing.Size(166, 25);
+            this.lblUnvan.TabIndex = 16;
+            this.lblUnvan.Text = "İdari Yön Unvan";
             // 
             // Form5
             // 
@@ -279,5 +296,6 @@ namespace Yuksekogretim_Yonetim_Sistemi
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblUnvan;
     }
 }

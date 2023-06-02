@@ -30,6 +30,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -46,10 +47,10 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.panel4 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.lblUni = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblUnvan = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -69,6 +70,14 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(229, 762);
             this.panel1.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(9, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(220, 136);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
             // 
             // label9
             // 
@@ -117,6 +126,8 @@ namespace Yuksekogretim_Yonetim_Sistemi
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel3.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel3.Location = new System.Drawing.Point(0, 145);
             this.panel3.Name = "panel3";
@@ -150,6 +161,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.lblUnvan);
             this.panel2.Controls.Add(this.lblNo);
             this.panel2.Controls.Add(this.lblSoyad);
             this.panel2.Controls.Add(this.lblAd);
@@ -220,6 +232,8 @@ namespace Yuksekogretim_Yonetim_Sistemi
             // 
             // panel4
             // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel4.Location = new System.Drawing.Point(0, 118);
             this.panel4.Name = "panel4";
@@ -248,13 +262,16 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.lblUni.TabIndex = 12;
             this.lblUni.Text = "<> Ögr Göv Universite";
             // 
-            // pictureBox1
+            // lblUnvan
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(9, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(220, 136);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            this.lblUnvan.AutoSize = true;
+            this.lblUnvan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUnvan.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblUnvan.Location = new System.Drawing.Point(290, 65);
+            this.lblUnvan.Name = "lblUnvan";
+            this.lblUnvan.Size = new System.Drawing.Size(161, 25);
+            this.lblUnvan.TabIndex = 17;
+            this.lblUnvan.Text = "Ögr Göv Unvan";
             // 
             // Form4
             // 
@@ -269,9 +286,9 @@ namespace Yuksekogretim_Yonetim_Sistemi
             this.Load += new System.EventHandler(this.Form4_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -296,5 +313,6 @@ namespace Yuksekogretim_Yonetim_Sistemi
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblUni;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblUnvan;
     }
 }

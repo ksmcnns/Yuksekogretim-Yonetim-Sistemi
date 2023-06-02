@@ -21,14 +21,13 @@ warning 6002: The table/view 'YYS_DB.dbo.bolumler' does not have a primary key d
           <Property Name="fakulte_id" Type="int" Nullable="false" />
           <Property Name="status" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'YYS_DB.dbo.Dersler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Dersler">
           <Key>
             <PropertyRef Name="DersID" />
           </Key>
           <Property Name="DersID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DersAd" Type="nvarchar(max)" />
+          <Property Name="DersEgitmeni" Type="varchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'YYS_DB.dbo.fakulteler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -56,13 +55,9 @@ warning 6002: The table/view 'YYS_DB.dbo.iller' does not have a primary key defi
           <Property Name="il_name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="status" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'YYS_DB.dbo.Notlar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Notlar">
           <Key>
             <PropertyRef Name="NotID" />
-            <PropertyRef Name="OgrID" />
-            <PropertyRef Name="Ders" />
           </Key>
           <Property Name="NotID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OgrID" Type="int" Nullable="false" />
@@ -72,7 +67,7 @@ warning 6002: The table/view 'YYS_DB.dbo.Notlar' does not have a primary key def
           <Property Name="Final1" Type="smallint" />
           <Property Name="Final2" Type="smallint" />
           <Property Name="Ortalama" Type="decimal" Precision="5" Scale="2" />
-          <Property Name="Durum" Type="bit" />
+          <Property Name="Durum" Type="nvarchar" MaxLength="5" />
         </EntityType>
         <EntityType Name="Ogrenci">
           <Key>
@@ -100,6 +95,7 @@ warning 6002: The table/view 'YYS_DB.dbo.Notlar' does not have a primary key def
           <Property Name="PersonelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="KatagoriId" Type="int" Nullable="false" />
           <Property Name="PersonelNo" Type="int" Nullable="false" />
+          <Property Name="PersonelUnvan" Type="nvarchar(max)" />
           <Property Name="PersonelAd" Type="nvarchar(max)" Nullable="false" />
           <Property Name="PersonelSoyad" Type="nvarchar(max)" Nullable="false" />
           <Property Name="PersonelDogumT" Type="nvarchar(max)" Nullable="false" />
@@ -170,6 +166,8 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="YYS_DBModelStoreContainer">
+          <EntitySet Name="Dersler" EntityType="Self.Dersler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notlar" EntityType="Self.Notlar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ogrenci" EntityType="Self.Ogrenci" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Personel" EntityType="Self.Personel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -181,12 +179,6 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
     [bolumler].[fakulte_id] AS [fakulte_id], 
     [bolumler].[status] AS [status]
     FROM [dbo].[bolumler] AS [bolumler]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Dersler" EntityType="Self.Dersler" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Dersler].[DersID] AS [DersID], 
-    [Dersler].[DersAd] AS [DersAd]
-    FROM [dbo].[Dersler] AS [Dersler]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="fakulteler" EntityType="Self.fakulteler" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -202,19 +194,6 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
     [iller].[il_name] AS [il_name], 
     [iller].[status] AS [status]
     FROM [dbo].[iller] AS [iller]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Notlar" EntityType="Self.Notlar" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Notlar].[NotID] AS [NotID], 
-    [Notlar].[OgrID] AS [OgrID], 
-    [Notlar].[Ders] AS [Ders], 
-    [Notlar].[Vize1] AS [Vize1], 
-    [Notlar].[Vize2] AS [Vize2], 
-    [Notlar].[Final1] AS [Final1], 
-    [Notlar].[Final2] AS [Final2], 
-    [Notlar].[Ortalama] AS [Ortalama], 
-    [Notlar].[Durum] AS [Durum]
-    FROM [dbo].[Notlar] AS [Notlar]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="universiteler" EntityType="Self.universiteler" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -261,6 +240,7 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="Notlar" EntityType="YYS_DBModel.Notlar" />
           <EntitySet Name="Ogrenci" EntityType="YYS_DBModel.Ogrenci" />
           <EntitySet Name="Personel" EntityType="YYS_DBModel.Personel" />
           <EntitySet Name="sysdiagrams" EntityType="YYS_DBModel.sysdiagrams" />
@@ -268,7 +248,6 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
           <EntitySet Name="Dersler" EntityType="YYS_DBModel.Dersler" />
           <EntitySet Name="fakulteler" EntityType="YYS_DBModel.fakulteler" />
           <EntitySet Name="iller" EntityType="YYS_DBModel.iller" />
-          <EntitySet Name="Notlar" EntityType="YYS_DBModel.Notlar" />
           <EntitySet Name="universiteler" EntityType="YYS_DBModel.universiteler" />
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -282,6 +261,20 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="Notlar">
+          <Key>
+            <PropertyRef Name="NotID" />
+          </Key>
+          <Property Name="NotID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgrID" Type="Int32" Nullable="false" />
+          <Property Name="Ders" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Vize1" Type="Int16" />
+          <Property Name="Vize2" Type="Int16" />
+          <Property Name="Final1" Type="Int16" />
+          <Property Name="Final2" Type="Int16" />
+          <Property Name="Ortalama" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Durum" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Ogrenci">
           <Key>
             <PropertyRef Name="OgrID" />
@@ -320,6 +313,7 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
           <Property Name="PersonelBolum" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PersonelSifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PersonelFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonelUnvan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -351,6 +345,7 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
           </Key>
           <Property Name="DersID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DersAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DersEgitmeni" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="fakulteler">
           <Key>
@@ -373,22 +368,6 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
           <Property Name="il_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="il_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="status" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Notlar">
-          <Key>
-            <PropertyRef Name="NotID" />
-            <PropertyRef Name="OgrID" />
-            <PropertyRef Name="Ders" />
-          </Key>
-          <Property Name="NotID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="OgrID" Type="Int32" Nullable="false" />
-          <Property Name="Ders" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Vize1" Type="Int16" />
-          <Property Name="Vize2" Type="Int16" />
-          <Property Name="Final1" Type="Int16" />
-          <Property Name="Final2" Type="Int16" />
-          <Property Name="Ortalama" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="Durum" Type="Boolean" />
         </EntityType>
         <EntityType Name="universiteler">
           <Key>
@@ -433,6 +412,21 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="YYS_DBModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="YYS_DBModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="Notlar">
+            <EntityTypeMapping TypeName="YYS_DBModel.Notlar">
+              <MappingFragment StoreEntitySet="Notlar">
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="Ortalama" ColumnName="Ortalama" />
+                <ScalarProperty Name="Final2" ColumnName="Final2" />
+                <ScalarProperty Name="Final1" ColumnName="Final1" />
+                <ScalarProperty Name="Vize2" ColumnName="Vize2" />
+                <ScalarProperty Name="Vize1" ColumnName="Vize1" />
+                <ScalarProperty Name="Ders" ColumnName="Ders" />
+                <ScalarProperty Name="OgrID" ColumnName="OgrID" />
+                <ScalarProperty Name="NotID" ColumnName="NotID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Ogrenci">
             <EntityTypeMapping TypeName="YYS_DBModel.Ogrenci">
               <MappingFragment StoreEntitySet="Ogrenci">
@@ -456,6 +450,7 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
           <EntitySetMapping Name="Personel">
             <EntityTypeMapping TypeName="YYS_DBModel.Personel">
               <MappingFragment StoreEntitySet="Personel">
+                <ScalarProperty Name="PersonelUnvan" ColumnName="PersonelUnvan" />
                 <ScalarProperty Name="PersonelFoto" ColumnName="PersonelFoto" />
                 <ScalarProperty Name="PersonelSifre" ColumnName="PersonelSifre" />
                 <ScalarProperty Name="PersonelBolum" ColumnName="PersonelBolum" />
@@ -499,6 +494,7 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
           <EntitySetMapping Name="Dersler">
             <EntityTypeMapping TypeName="YYS_DBModel.Dersler">
               <MappingFragment StoreEntitySet="Dersler">
+                <ScalarProperty Name="DersEgitmeni" ColumnName="DersEgitmeni" />
                 <ScalarProperty Name="DersAd" ColumnName="DersAd" />
                 <ScalarProperty Name="DersID" ColumnName="DersID" />
               </MappingFragment>
@@ -520,21 +516,6 @@ warning 6002: The table/view 'YYS_DB.dbo.universiteler' does not have a primary 
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="il_name" ColumnName="il_name" />
                 <ScalarProperty Name="il_id" ColumnName="il_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Notlar">
-            <EntityTypeMapping TypeName="YYS_DBModel.Notlar">
-              <MappingFragment StoreEntitySet="Notlar">
-                <ScalarProperty Name="Durum" ColumnName="Durum" />
-                <ScalarProperty Name="Ortalama" ColumnName="Ortalama" />
-                <ScalarProperty Name="Final2" ColumnName="Final2" />
-                <ScalarProperty Name="Final1" ColumnName="Final1" />
-                <ScalarProperty Name="Vize2" ColumnName="Vize2" />
-                <ScalarProperty Name="Vize1" ColumnName="Vize1" />
-                <ScalarProperty Name="Ders" ColumnName="Ders" />
-                <ScalarProperty Name="OgrID" ColumnName="OgrID" />
-                <ScalarProperty Name="NotID" ColumnName="NotID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -197,6 +197,9 @@ namespace Yuksekogretim_Yonetim_Sistemi
             txtSurname.Text = "";
             txtPhone.Text = "";
             txtVerifyCode.Text = "";
+            comboBox1.Items.Clear();
+            comboBox2.Items.Clear();
+            comboBox3.Items.Clear();
         }
 
         private void button4_Click(object sender, EventArgs e)

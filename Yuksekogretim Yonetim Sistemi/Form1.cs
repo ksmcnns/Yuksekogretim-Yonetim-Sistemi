@@ -28,6 +28,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
         private string UserDepartment = "";
         private string UserNo = "";
         private string UserImage = "";
+        private string UserTitle = "";
         private void button1_Click(object sender, EventArgs e)
         {
             if(FormSelection == " ")
@@ -94,7 +95,7 @@ namespace Yuksekogretim_Yonetim_Sistemi
                     UserImage = user.PersonelFoto;
                     if (lblVerify.Text == textVerify.Text)
                     {
-                        Form4 frm4 = new Form4(Username, UserSurname, UserUniversity, UserFaculty, UserDepartment, UserNo, UserImage);
+                        Form4 frm4 = new Form4(Username, UserSurname, UserUniversity, UserFaculty, UserDepartment, UserNo, UserImage, UserTitle);
                         this.Hide();
                         frm4.Show();
                     }
@@ -131,9 +132,10 @@ namespace Yuksekogretim_Yonetim_Sistemi
                     UserFaculty = user.PersonelFakulte;
                     UserDepartment = user.PersonelBolum;
                     UserImage = user.PersonelFoto;
+                    UserTitle = user.PersonelUnvan;
                     if (lblVerify.Text == textVerify.Text)
                     {
-                        Form5 frm5 = new Form5(Username, UserSurname, UserUniversity, UserFaculty, UserDepartment, UserNo, UserImage);
+                        Form5 frm5 = new Form5(Username, UserSurname, UserUniversity, UserFaculty, UserDepartment, UserNo, UserImage, UserTitle);
                         this.Hide();
                         frm5.Show();
                     }

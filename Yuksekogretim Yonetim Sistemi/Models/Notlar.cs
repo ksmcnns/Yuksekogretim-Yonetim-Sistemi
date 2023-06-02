@@ -22,6 +22,6 @@ namespace Yuksekogretim_Yonetim_Sistemi.Models
         public Nullable<short> Final1 { get; set; }
         public Nullable<short> Final2 { get; set; }
         public Nullable<decimal> Ortalama { get; set; }
-        public Nullable<bool> Durum { get; set; }
+        public string Durum { get; set; }
     }
 }

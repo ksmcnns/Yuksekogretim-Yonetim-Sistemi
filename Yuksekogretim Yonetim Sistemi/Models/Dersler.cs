@@ -16,5 +16,6 @@ namespace Yuksekogretim_Yonetim_Sistemi.Models
     {
         public int DersID { get; set; }
         public string DersAd { get; set; }
+        public string DersEgitmeni { get; set; }
     }
 }

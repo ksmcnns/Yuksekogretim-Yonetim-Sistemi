@@ -27,6 +27,7 @@ namespace Yuksekogretim_Yonetim_Sistemi.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Notlar> Notlar { get; set; }
         public virtual DbSet<Ogrenci> Ogrenci { get; set; }
         public virtual DbSet<Personel> Personel { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
@@ -34,7 +35,6 @@ namespace Yuksekogretim_Yonetim_Sistemi.Models
         public virtual DbSet<Dersler> Dersler { get; set; }
         public virtual DbSet<fakulteler> fakulteler { get; set; }
         public virtual DbSet<iller> iller { get; set; }
-        public virtual DbSet<Notlar> Notlar { get; set; }
         public virtual DbSet<universiteler> universiteler { get; set; }
     
         public virtual int NOTLISTESI()
